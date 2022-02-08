@@ -1,0 +1,28 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: Button
+    properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Add an article, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: 'fa:plus-circle'}
+    name: add_article_button
+    layout_properties: {grid_position: 'LJUOJJ,SRAXSU'}
+    event_bindings: {click: add_article_button_click}
+  - type: RepeatingPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      visible: true, spacing_above: small, spacing_below: small, item_template: ArticleView,
+      background: ''}
+    name: articles_panel
+    layout_properties: {grid_position: 'LTEJNG,OLXRET'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}

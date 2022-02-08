@@ -1,0 +1,55 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"ILQVXL":20,"VNGULM":40,"OMBGPO":70,"QZAGVC":15}'}
+components:
+- type: Label
+  properties: {role: subheading, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
+  name: title_label
+  layout_properties: {grid_position: 'WSKMSL,OMBGPO QBEZXP,RYPUHI'}
+  data_bindings:
+  - {property: text, code: 'self.item[''title'']'}
+- type: Label
+  properties: {}
+  name: category_label
+  layout_properties: {grid_position: 'WSKMSL,OMBGPO QBEZXP,CHOHRU'}
+  data_bindings:
+  - {property: text, code: 'self.item[''category''][''name'']'}
+- type: Image
+  properties: {}
+  name: image_1
+  layout_properties: {grid_position: 'WSKMSL,OMBGPO GGAFNL,ILQVXL'}
+  data_bindings:
+  - {property: source, code: ' self.item[''image'']'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: true, underline: false, icon: ''}
+  name: content_label
+  layout_properties: {grid_position: 'WSKMSL,OMBGPO GGAFNL,VNGULM'}
+  data_bindings:
+  - {property: text, code: 'self.item[''content'']'}
+- type: FlowPanel
+  properties: {}
+  name: flow_panel_1
+  layout_properties: {grid_position: 'WSKMSL,QZAGVC'}
+  components:
+  - type: Button
+    properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:pencil-square'}
+    name: edit_article_button
+    layout_properties: {grid_position: 'WSKMSL,ZFFKTX'}
+    event_bindings: {click: edit_article_button_click}
+  - type: Button
+    properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: red, bold: false,
+      underline: false, icon: 'fa:trash'}
+    name: delete_article_button
+    layout_properties: {}
+    event_bindings: {click: delete_article_button_click}
+is_package: true
