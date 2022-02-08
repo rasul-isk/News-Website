@@ -1,0 +1,78 @@
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {auto_create_missing_columns: false}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: true, enable_automatically: true, use_email: true,
+    confirm_email: true}
+  server_config: {user_table: users}
+startup: {type: form, module: Homepage}
+package_name: C00246498_multi
+allow_embedding: false
+name: C00246498-multi
+runtime_options: {version: 2, client_version: '3', server_version: python3-full}
+metadata: {}
+db_schema:
+  categories:
+    title: categories
+    client: search
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+  articles:
+    title: articles
+    client: none
+    server: full
+    columns:
+    - name: title
+      admin_ui: {width: 200}
+      type: string
+    - name: content
+      admin_ui: {width: 200}
+      type: string
+    - name: image
+      admin_ui: {width: 200}
+      type: media
+    - name: created
+      admin_ui: {width: 200}
+      type: datetime
+    - name: updated
+      admin_ui: {width: 200}
+      type: datetime
+    - name: category
+      admin_ui: {width: 200}
+      type: link_single
+      target: categories
+    - name: user
+      admin_ui: {width: 200}
+      type: link_single
+      target: users
+  users:
+    title: Users
+    client: none
+    server: full
+    columns:
+    - name: email
+      admin_ui: {width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {width: 100}
+      type: bool
+    - name: signed_up
+      admin_ui: {width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {width: 200}
+      type: string
+    - name: confirmed_email
+      admin_ui: {width: 200}
+      type: bool
+    - name: email_confirmation_key
+      admin_ui: {width: 200}
+      type: string
+    - name: last_login
+      admin_ui: {width: 200}
+      type: datetime
+renamed: true
